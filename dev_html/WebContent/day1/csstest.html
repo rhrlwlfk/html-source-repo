@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+HTML에서는 블락요소[태그 자체 크기]와 인라인요소 [한줄에 열거]가 있다.
+띄어쓰기 되면 블락요소이다.
+ -->  
+ <!--
+ cs를 통해서 테그의 속성을 바꿀수 있다. 
+
+   -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css적용해 보기</title>
+<style type="text/css">
+div{
+display:block;
+width: 300px;
+height: 200px;
+background-color: red;
+   }
+   span{
+	 display:inline;
+	 width:  200px;
+	 height: 500px;
+	 background-color: blue;
+   }
+      span#sp_1{
+	 display:block;
+	 width:  200px;
+	 height: 500px;
+	 background-color:yellow;
+   }
+      span#sp_2{
+	 display:none;
+	 width:  200px;
+	 height: 500px;
+	 background-color: green;
+   } 
+</style>
+</head>
+<body>
+<div>Divar_jax에서 많이 활용 기억</div> <!-- 줄바꿈 블락요소 이다.--> 
+<span>Span</span>
+<hr> <!-- 줄바꿈 블락요소 이다.--> 
+<span id="sp_1">hello</span>
+<span id="sp_2">html5</span>
+<h1>코로나19</h1>  <!-- 줄바꿈 -->  
+</body>
+</html>

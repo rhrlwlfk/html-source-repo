@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM 생성하기</title>
+<script type="text/javascript">
+	window.onload = function() {
+		var header = document.createElement("h1");
+		var textNode = document.createTextNode("Hello now!!!");
+		//노드 생성 
+		header.appendChild(textNode);
+		document.body.appendChild(header);
+	}
+</script>
+<h2>오늘의 날씨</h2>
+</head>
+<body>
+
+</body>
+</html>

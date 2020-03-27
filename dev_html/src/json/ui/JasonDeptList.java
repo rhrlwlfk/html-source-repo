@@ -29,13 +29,12 @@ public class JasonDeptList {
 			rmap.put("loc", "제주도");
 			deptList.add(rmap);
 		return deptList;
-		
 	}
 	public static void main(String[] args) {
 		JasonDeptList jdl = new JasonDeptList();
 		List<Map<String,Object>> deptList = jdl.getDeptList();
 		Gson g =new Gson();
-		String temp = g.toJson(deptList);
+		String temp = g.toJson(deptList); //gson으로 바꿔서 deptlist를 temp에다가 넣는다 sysout에 출력하려면 String타입안에 넣어야하니
 		System.out.println(temp);
 	}
 

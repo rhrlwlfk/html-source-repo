@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>onload이벤트 활용</title>
+	<script type="text/javascript">
+		function send() {
+			
+		}
+	</script>
+</head>
+<body>
+<!-- 
+	dom먼저 ? 아니면 event 처리가 먼저 ?? 
+ -->
+ <script type="text/javascript">
+	window.onload = function() {//익명 함수 - 한번만 가능함 또호출 불가능 
+		//이벤트 연결하기
+		var header = document.getElementById("header");
+		header.onclick = function() {
+			alert("클릭~~~확인");
+			//이벤트를 다시 사용하지 않을생각
+			//이벤트제거
+			header.onclick = null;//자원반납하기 - 버블링 발생 방지
+		}
+		
+	};
+ </script>
+<h1 id ="header">Click</h1>
+
+</script>
+</body>
+</html>

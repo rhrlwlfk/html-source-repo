@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+ fetch API이용하면 Request 나 Response와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는 것이
+ 가능하다.
+ 비동기능을 
+ */
+	fetch("http://localhost:8000/jsonn/deptjson.jsp")
+	.then(function(response){
+		return response.json();
+	})
+	.then(function(myjson){
+		//console.log(JSON.Stringify(myjson));
+		result = JSON.stringify(myjson);
+		jsonDoc = JSON.parse(result);
+		//document.getElementById("d_here").innerText = jsonDoc;
+		var temp='';
+		temp+="<p>";
+		for(var i=0;i<jsonDoc.length;i++) {
+			alert(jsonDoc[i].dname+","+jsonDoc[i].loc);
+			temp+="<h1>"+jsonDoc[i].loc+"</h1>";
+		}
+		temp+="</p>";
+		//document.getElementById("d_here").innerText = jsonDoc;
+		document.getElementById("d_here").innerHTML = temp;
+		
+	});
+</script>
+<div id="d_here"></div>
+</body>
+</html>

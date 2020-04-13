@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date객체 - 날짜와 시간을 다루는 객체이다.</title>
+<script type="text/javascript">
+	function showtime() {
+		var today = new Date();
+		//alert(today.toLocaleString());
+		var year = today.getYear();
+		var month = today.getMonth()+1;
+		var day = today.getDate();
+		//alert(year+","+month+","+day);
+		var temp = today.toLocaleString();
+		document.getElementById("d_msg").innerHTML = temp;
+		return temp;
+		//window.status = temp;
+	}
+</script>
+바디안에 onLoad를 주면 바로 확인하수있다.
+<!-- 아작스 처리할때 location.href = "a.html?time="+new Date().getTime(); -->
+</head>
+<!-- <body onLoad = "showtime()"> -->
+<body>
+	<div id="d_msg"></div>
+<script type="text/javascript">
+	var temp = showtime();
+	alert(temp);
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</style>
+<script type="text/javascript">
+	function account() {
+		document.write("<table border='1' width='450'>");
+		for(var i=0;i<3;i++){
+			document.write("<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>");
+		}
+			document.write("</table>");
+	}
+</script>
+</head>
+<body>
+<!-- 
+document내장객체는 tableTest.html가리킨다.
+자바코드 영역
+자바스크립트 코드영역 
+css코드 영역
+html코드 영역 
+ -->
+ <label>
+ 시작단
+ </label>
+<script type="text/javascript"></script>
+<form id ="f_gugu">
+구구단 보기:
+시작단: <input type="text" size="4" name="txtStart"/>
+끝단: <input type="text" size="4" name="txtEnd"/>
+<button onclick="javascript:account(document.getElementById('f_gugudan').txtStart.value,
+									document.getElementById('f_gugudan').txtEnd.value)">구구단보기</button>
+</form>
+
+</body>
+</html>

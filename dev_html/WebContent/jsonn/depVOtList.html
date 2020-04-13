@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js" ></script>
+<script type="text/javascript" src="https:/www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+<!-- 
+복습할것
+오라클 서버와 연동 - SELECT문처리
+JS이용해서 태그를 접근하거나 조작할 수있다.
+jeasyui는 어떻게 태그를 접근하고 이벤트 처리하는 관찰하기.
+ -->
+	<table id="dg_dept" class="easyui-datagrid"></table>
+<script type="text/javascript">
+	$("#dg_dept").datagrid({
+		url:'./deptVOjson2.jsp', 
+		title:'부서관리',
+		width: 480,
+		columns:[[
+			{field:'deptno',title:'부서번호',width:120,align:'center'}
+			,{field:'dname',title:'부서명',width:120,align:'center'}
+			,{field:'loc',title:'지역',width:120,align:'center'}
+		]],
+		onDblClickRow: function(index, row) {
+			alert(row.dname+"," +row.loc+", index:"+index);
+			location.href="fectch.html";
+			//페이지 이동처리할때 - get방식이다
+			//location도 내장객체이다
+			
+		}
+	}); //쿼리문식 임포트 해야함.
+</script>
+</body>
+</html>

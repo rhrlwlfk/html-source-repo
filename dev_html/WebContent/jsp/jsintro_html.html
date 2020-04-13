@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 자바스크립트 개요 </title>
+	<!-- 주의 사항 : 반드시 따로 선언하여 사용할것.  -->
+	<script type="text/javascript" src="text.js"></script>
+	<script type="text/javascript">
+		document.write("좋은아침(태그도 포함)");
+		test();
+	</script>
+</head>
+<body>
+ <!-- 
+ 	학습목표
+ 	-html(View)와 자바스크립트(Event, View)의 역할에 대해 말할수 있다. 
+ 	-자바스크립트 선언 위치에 대해서 설명 할 수 있다. 
+ 	head:전역변수, 함수정의 body:지역 변수 , 실행문작성
+ 	-mine type에 대해 이해하고 페이지에 적절한 mine type을 작성할 수 있다.
+ 	
+ 	개요
+ 	:브라우저 플랫폼에서 등장하는 객체기반 스크립트 언어이다. 
+ 	:컴파일을 하지않는다.
+ 	:런타임시에 결정 된다(변수)
+ 	:html파일에 포함된다.
+ 	<script type "text/html"/script>
+ 	
+ 	html테그의 이벤트 핸드러를 자바스크립트 코드로 표현할 수 있다. 
+ 	:자바스크립트를 적용하여 확장된 html문서를 작성할수 있다ㅣ.
+ 	<태그이름 onEventName ="자바스크립트"/>
+ 	
+ 	더블쿼테이션과 싱글쿼테이션을 같이 사용 할수 있다.
+ 	:한개만 사용할 땐 구분없이 사용해요.
+ 	:같이 사용할땐 밖이 더블 안이 싱글 
+ 	
+ 	자바스크립트 코드를 URL로 사용가능함.
+ 	
+ 	자바스크립트 파일을 내장할수 있다.
+ 	:반복되는  코드를 줄임 
+ 	:여러 페이지에서 공통으로 필요한 함수를 구현- 제시됨.
+  -->
+  <a href="www.naver.com" onmouseover="document.bgColor='red'"
+  						  onmouseout="document.bgColor='yellow'"
+  >네이버</a>
+  <hr>
+    <a href="javascript:alert('안녕하세요.');" onmouseover="document.bgColor='red'"
+  						  onmouseout="document.bgColor='yellow'"
+  >네이버</a>
+</body>
+</html>

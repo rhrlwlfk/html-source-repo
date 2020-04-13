@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function checkAll(size){//select * from 테이블 ->list.size() -> 로우수
+		//전체 체크박스를 선택한거야?
+		if(document.f_rev.i_checkall.checked == 1) {
+			alert("전체 선택함");
+			for(i=0;i<size;i++){
+				document.f_rev.from[i].checked =1;
+			}
+		}
+		//전체 체크박스를 해제했을 때 
+		else{
+			alert("전체 선택해제함");
+			for(i=0;i<size;i++){
+				document.f_rev.from[i].checked =0;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="f_rev" method="get" action="#">
+	<table width="500" border="1" borderColor="green">
+		<!-- ============== 헤더 영역 ================ -->
+		<tr>
+		<th>
+		<input type="checkbox" id="i_checkall" name="i_checkall" onClick="checkAll(3)">
+		</th>
+		<th>no</th>
+		<th>보낸이</th>
+		<th>보낸일자</th>
+		</tr>
+		<!-- ============== body 영역=============== -->
+		<tr>
+		<th>
+		<input type="checkbox" name="from" value="from1">
+		</th>
+			<td>1</td>
+			<td>이순신</td>
+			<td>2020-04-07</td>
+		</tr>
+		<tr>
+			<th>
+			<input type="checkbox" name="from" value="from2">
+			</th>
+			<td>2</td>
+			<td>유재석</td>
+			<td>2020-04-03</td>
+		</tr>
+		<tr>
+			<th>
+			<input type="checkbox" name="from" value="from3">
+			</th>
+			<td>3</td>
+			<td>강호동</td>
+			<td>2020-04-09</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

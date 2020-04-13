@@ -16,14 +16,19 @@ public class WebCrawling {
          BufferedReader br = new BufferedReader(isr);
          String tags = null;
          StringBuilder sb = new StringBuilder();
+         
          while((tags = br.readLine())!=null) {
             sb.append(tags);
+            System.out.println(tags);
          }
          System.out.println(sb);
          br.close();
+         
          //크롤링 시작 - 키(타이틀)
          List<String> titleList = new ArrayList<String>();
          String strs[] = sb.toString().split("<th>");
+         int s =1;
+         System.out.println(s+":"+ strs);
          for(int i=0;i<strs.length;i++) {
         	 System.out.println("strs["+i+"]==>"+strs[i]);
          }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<div id="d_info"></div> 
+<script type="text/javascript">
+//ready를 사용하지 않을떄는 div테그를 위에다 사용하는게 좋다. 
+//지금은 ready 함수를 사용하지 않고있다.
+//ready함수를 사용할때와 사용하지 않았을때 차이점에 대해 말할 수 있어야한다.
+	$.ajax({
+		method:'get'// or post=> data속성 같이 사용함 . 전송방식(사용자가 서버에게-요청   ,  반대로 서버가 사용자에게 - 응답)
+		,url:'customerInfo.jsp'
+		,dataType: 'json'
+		,success:function(result){
+			alert(result);
+			//fetch함수로 처리시에는 result.trim() 하여 공백문자를 제거한다.
+			//따로 꺼낼려면 var 사용
+			var res = JSON.stringify(result);
+			var resDoc = JSON.parse(res);//배열전환 되서 for문으로 돌릴수있다.
+			for(var i=0;i<resDoc.length;i++) {
+				alert(resDoc[i].mem_tel);
+				if("025559991"==resDoc[i].mem_tel){
+					alert(resDoc[i].mem_addr);     
+				}
+			}
+			//$("#d_info").text(res); //div테그에 넣고싶다하면  $를썻으니 위에 jquery import해줘야함
+		}
+	});
+</script>
+</body>
+</html>

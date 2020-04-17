@@ -25,20 +25,20 @@
    <script type="text/javascript">
    //쿠키에서 읽어온 값 저장   
       var c_name;
-	    $.fn.datebox.defaults.formatter = function(date){
-	  		var y = date.getFullYear();
-	  		var m = date.getMonth()+1;
-	  		var d = date.getDate();
-	  		return y+'-'+(m<10 ? "0"+m:m)+'-'+(d<10 ? "0"+d:d);
-	  	}
-	  	$.fn.datebox.defaults.parser = function(s){
-	  		var t = Date.parse(s);
-	  		if (!isNaN(t)){
-	  			return new Date(t);
-	  		} else {
-	  			return new Date();
-	  		}
-	  	}
+      $.fn.datebox.defaults.formatter = function(date){
+         var y = date.getFullYear();
+         var m = date.getMonth()+1;
+         var d = date.getDate();
+         return y+'-'+(m<10 ? "0"+m:m)+'-'+(d<10 ? "0"+d:d); //삼항연산자
+      }                    //    참  :거짓
+      $.fn.datebox.defaults.parser = function(s){
+         var t = Date.parse(s);
+         if (!isNaN(t)){
+            return new Date(t);
+         } else {
+            return new Date();
+         }
+      }
       function loginAction(){
          //사용자가 입력한 아이디 담기
          var u_id =  $("#mem_id").val();
@@ -84,11 +84,9 @@
 </head>
 <body>
 <script type="text/javascript">
-
    $(document).ready(function() {
-      var c_name = null;
+      var c_name = null;//null값준이유는 그냥안썻음 
       c_name = $.cookie('c_name');
-
       //alert("c_name:"+c_name);
       //쿠키에서 꺼낸 이름이 null이면 로그인을 하지 않음.
       //null이 아니면 로그인 한 경우
@@ -103,7 +101,7 @@
       $('#tre_movie').tree({
          onClick: function(node){
             //선택한 노드의 문자열을 가져옴.
-            if("회원관리"== node.text){
+            if("회원관리"== node.text){//node 문자로 가져온다
                if($.cookie("c_name")!=null){
                   alert("회원목록");
                }else{
@@ -123,17 +121,15 @@
             ,{field: 'address', title:'주소', width:300}
             ,{field: 'hp', title:'H.P', width:140}
          ]]
-      ,data:[
+      ,  data:[
          {id: 'test', name:'김유신',address:'서울시 마포구 공덕동', hp:'010-555-7777'}
          ,{id: 'apple', name:'이성계',address:'서울시 금천구 가산동', hp:'010-333-7777'}
          ,{id: 'tomato', name:'감강찬',address:'서울시 영등포구 영등포동', hp:'010-6688-7777'}
          ]
-      
-      
       });
       $('#pp').pagination({
-    		pageList: [5,10,15,20]
-    	});
+         pageList: [5,10,15,20]
+      });
       
    });
 </script>
@@ -215,24 +211,23 @@
        </div>
       <!--======================== [[ 메뉴 선택에 따른 내용 ]] ============================-->
       <div data-options="region:'center',title:'영화예매 시스템'" style="padding:5px;background:#eee;">
-		<div style="margin:10px 0;"></div>
-		Home > 회원관리 > 회원목록
-		<div style="margin:10px 0;"></div>
-        <!--@@@@@@@@@@ 검색조건 추가하기 @@@@@@@@@@-->
-        <label>이름   :</label>
-        <input id="sb_name" class="easyui-searchbox"/> 
-        <label>H.P :</label>
-        <input id="sb_name" class="easyui-maskedbox" mask="999-9999-9999" style="width:140px"/> 
-        <label>생년월일 :</label>
-        <input id="db_birth" class="easyui-datebox" style="width:140px;">
+         <div style="margin:10px 0;"></div>
+             Home > 회원관리 > 회원목록  
+         <div style="margin:10px 0;"></div>
+         <!--@@@@@@@@@@ 검색조건 추가하기 @@@@@@@@@@-->
+         <label>이름 : </label>
+         <input id="sb_name" class="easyui-searchbox"/>
+         <label>H.P : </label>
+         <input id="sb_name" class="easyui-maskedbox" mask="999-9999-9999" style="width:140px"/>
+         <label>생년월일 :</label>
+         <input id="sb_birth" class="easyui-datebox" style="width:140px"/>
+         <div style="margin:10px 0;"></div>
         <!--@@@@@@@@@@ 회원관리 @@@@@@@@@@-->
       <div id="dg_member"></div>
       <div id="pp" class="easyui-pagination" style="background:#efefef;border:1px solid #ccc;"
-        data-options="total:3,pageSize:3">
-	</div>
+           data-options="total:3,pageSize:10">
       </div>
-   
-   
+   </div>
    </div>
 </body>
 </html>

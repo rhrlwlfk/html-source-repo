@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,34 +11,31 @@
     <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/demo/demo.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+	<style type="text/css">
+		#d_search {
+			position:absoulte;
+		}
+	</style>
 </head>
 <body>
-<table id="dg_test"></table>
-<script type="text/javascript">
-   $(document).ready(function(){
-      $("#dg_test").datagrid({
-    	 title: "체크박스구성[js만으로]",
-         url:'check1.jsp'
-         //checkbox_data.json대신 select문을 통해서 가져온 정보로 체크박스 초기화 해보기?
-         ,columns:[[
-      	 	 {field:'ck',checkbox:true}
-      	 	,{field:'empno', align:'center', editor:'text',title:"사원번호"}
-      	 	,{field:'ename', align:'center', editor:'text',title:"사원이름"}
-      	 ]]
-      });
-   });
-</script>
+
+	<script type="text/javascript">
+	
+		$('#book_title').textbox({
+		.bind('keyup',function(e){
+			if(e.keyCode == 13) {
+				$(this).textbox('setValue', $(this).val());
+					}
+				});
+			})
+		});
+		
+		$(document).ready(function (){
+			
+		});
+	</script>
+	
+	<input id="book_title" class ="easyui-textbox" style="width:300px"/>
+	<div id="d_search"></div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

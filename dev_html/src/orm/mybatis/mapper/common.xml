@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orm.mybatis.commonMapper">
+	<select id="getZDOList" parameterType="map" resultType="map">
+	<!-- 이 곳에 올 select -->
+			select distinct(zdo)  from zipcode_t
+	</select>
+	<select id="getSiGuList" parameterType="map" resultType="map">
+		SELECT distinct(sigu) sigu
+		 FROM zipcode_t
+		<where>
+			<if test="zdo!=null">
+				AND zdo = #{zdo}
+			</if>
+			<if test="sigu!=null">
+				AND sigu LIKE #{sigu}||'%'
+			</if>
+		</where>
+	</select>
+		<select id="getDongList" parameterType="map" resultType="map">
+		</select>
+</mapper>

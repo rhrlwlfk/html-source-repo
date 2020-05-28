@@ -24,10 +24,30 @@
    }
 </style>
    <script type="text/javascript">
+   function dongIN(){
+       $("#d_dong").change(function(){
+          $("#d_dong option:selected").each(function(){
+           $("#dong").val($(this).text());
+          });
+       });
+    }
       function siguIN(){
-         $("#i_sigu").change(function(){
-            $("#i_sigu option:selected").each(function(){
-               $("#sigu").val($(this).text());//this => i_sigu
+         $("#d_sigu").change(function(){
+            $("#d_sigu option:selected").each(function(){
+             $("#sigu").val($(this).text());
+               var s_gu = $(this).text();
+               var z_do = $("#zdo").val();
+               var param="zido="+z_do+"&sigu="+s_gu;
+               $.ajax({
+                   method:"post"
+                  ,data:param
+                  ,url:"getDongList.jsp"
+                  ,success:function(result){
+                     $("#d_dong").html(result);
+                     dongIN();
+                     //sigu정보를 해당하는 곳에 넣어야 한다.함수를 만든다.
+                  }
+               });
             });
          });
       }
@@ -41,7 +61,7 @@
                    method:"post"
                   ,url:"getzdo.jsp"
                   ,success:function(result){
-                     $("#d_sigu").html(result);
+                     $("#i_zdo").html(result);
                      //sigu정보를 해당하는 곳에 넣어야 한다.함수를 만든다.
                   }
                });
@@ -86,16 +106,13 @@
          <td width="60px">구</td>
          <td width="140px">
             <!-- 아작스로 처리될 부분. id값 기억하기 -->
-            <select id="d_sigu">
-               <option value="선택">선택</option>
-            </select>   
+		 <div id="d_sigu"></div>
+
          </td>
          <td width="60px">동</td>
          <td width="140px">
             <!-- 아작스로 처리될 부분. id값 기억하기 -->
-            <select id="d_dong">
-               <option value="선택">선택</option>
-            </select>   
+            <div id="d_dong"></div>
          </td>
       </tr>
       <tr>

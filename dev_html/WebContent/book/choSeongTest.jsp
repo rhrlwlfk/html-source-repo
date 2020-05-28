@@ -32,7 +32,7 @@
 			alert(str.charCodeAt(1));
 		return result;
 	}
-	var num =choSeongAccount("귤이");
+	var num = choSeongAccount("귤이");
 	alert("a"+ num);
 </script>
 </body>

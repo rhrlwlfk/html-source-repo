@@ -20,4 +20,3 @@ out.print(imsi);
  <%
  }
  %>
- <%

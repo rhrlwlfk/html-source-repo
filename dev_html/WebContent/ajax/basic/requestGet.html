@@ -8,7 +8,7 @@
    function createRequest(){
       try {
          //IE8.0이상, 사파리, 오페라, 크롬, 파이어폭스
-         xhrObject = new XMLHttpRequest();
+         xhrObject = new XMLHttpRequest();//객체를 생성
       } catch (trymicrosoft) {
          try { 
             //IE6.0
@@ -28,7 +28,7 @@
       xhrObject.send(null);//전송처리
    }
    function result_process(){
-      if(xhrObject.readyState ==4) {
+      if(xhrObject.readyState ==4) {//요청한 데이터의 처리가 완료되어 응답할 준비가 완료됨.
          if(xhrObject.status ==200){
          //   document.getElementById("d_xml").innerText = xhrObject.responseText;
             document.getElementById("d_xml").innerHTML = xhrObject.responseText;

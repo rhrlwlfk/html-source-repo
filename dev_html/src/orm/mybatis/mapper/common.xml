@@ -6,17 +6,33 @@
 			select distinct(zdo)  from zipcode_t
 	</select>
 	<select id="getSiGuList" parameterType="map" resultType="map">
-		SELECT distinct(sigu) sigu
+		SELECT distinct(sigu)
 		 FROM zipcode_t
+<!-- 동적쿼리문을 지원함 -->
 		<where>
 			<if test="zdo!=null">
-				AND zdo = #{zdo}
-			</if>
-			<if test="sigu!=null">
-				AND sigu LIKE #{sigu}||'%'
+				AND zdo LIKE #{zdo}||'%'
 			</if>
 		</where>
 	</select>
-		<select id="getDongList" parameterType="map" resultType="map">
+		<select id="zipcodeList" parameterType="map" resultType="map">
+			select zipcode,address 
+			from zipcode_t
+			<where>
+			<if test="dong!=null">
+				AND dong Like  #{dong}||'%'
+			</if>
+			</where>
+		</select>
+		<select id="dongList" parameterType="map" resultType="map">
+			select distinct(dong)
+			from zipcode_t
+			<where>
+			<if test="zdo!=null and sigu!=null">
+				AND zdo  = #{zdo}
+				AND sigu = #{sigu}
+			</if>
+			</where>
+
 		</select>
 </mapper>

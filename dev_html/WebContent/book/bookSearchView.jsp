@@ -23,6 +23,10 @@
       .listOut{
       	background:#FFFFFF;
       }
+      #d_test2, #d_test3{
+      	margin: 100px;
+      	background: blue;
+      }
    </style>
    <script type="text/javascript">
    //함수선언, 전역변수 선언 위치
@@ -55,9 +59,9 @@
    <script type="text/javascript">
    //DOM구성이 되었을 때
       $(document).ready(function (){
-         var t = $('.textbox-f'); //클래스로 접근
+         var t = $('.textbox-f'); //클래스로 접근 개발자 도구들어가면 textbox-f이름이있음 
          t.textbox('textbox').bind('keyup', function(e){
-            var v_word = $("#_easyui_textbox_input1").val().toUpperCase();
+            var v_word = $("#_easyui_textbox_input1").val().toUpperCase();//대문자로 바꿔줄려고 쓴거 toUpperCase
             var choKeyword = choSeongAccount(v_word);
             //초성 검색 구분
                   //v_word가 ""이 아니라는건 Test가 입력됐다는 소리고
@@ -72,20 +76,20 @@
             var param = "book_title="+p_word+"&choMode="+choMode;
             
             $.ajax({
-               method:"post"
+                method:"post"
                ,url:"htmlBookList.jsp"
                ,data:param
                ,success:function(result){
                   //alert("result:"+result);
                   $("#d_search").css("border","1px soild #000000");
                   $("#d_search").css("background","#FFFFFF");
-                   $("#d_search").css("top",$("#_easyui_textbox_input1").offset().bottom+"px");
+                  $("#d_search").css("top",$("#_easyui_textbox_input1").offset().bottom+"px");
                   $("#d_search").css("left",$("#_easyui_textbox_input1").offset().left+"px");
                   $("#d_search").html(result);//htmlBookList.jsp페이지 내용 => result
                   var tds = document.getElementsByTagName("td");
                   for(var i=0;i<tds.length;i++){
                      tds[i].onmouseover = function(){
-                    	 this.className = "listIn";
+                    	this.className = "listIn";
                         var b_no = $(this).attr("id");
                         //alert("b_no ==>"+b_no);
                         
@@ -93,7 +97,7 @@
                         if("2"==$(this).attr("id")){
                            targerURL = 'bookSearchDetil2.jsp';
                         }else if("3"==$(this).attr("id")){
-                           targerURL = 'bookSearchDetil3.jsp.jsp';
+                           targerURL = 'bookSearchDetil3.jsp';
                         }
                         $.ajax({
                           method:"post"

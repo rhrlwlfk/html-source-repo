@@ -73,25 +73,28 @@ XMLHttpRequest
       xhrObject.send(null);//전송처리
    }
    function sold_process(){
-      //alert(xhrObject.readyState); //0->1->2->3->4 단계별로 상태값에 정의: 상태값을 숫자값으로 출력해줌
+      alert(xhrObject.readyState); //0->1->2->3->4 단계별로 상태값에 정의: 상태값을 숫자값으로 출력해줌
       if(xhrObject.readyState ==4){ //다운로드가 완료된 상태니?
          if(xhrObject.status ==200){
          var newTotal = xhrObject.responseText;
          //alert("new Total :"+newTotal);
          var boardSoldEl = document.getElementById("boardSold");
-         replaceText(boardSoldEl,newTotal);
+         replaceText(boardSoldEl,newTotal);//id값에다가 boardAction.jsp안에있는 15 등록
          //보드 한개당 마진 금액 계산
          //구매가 구하기
          var costEl = document.getElementById("cost");
          var cost = getText(costEl);
-         
+         //alert("cost"+cost);
          var priceEl = document.getElementById("price");
          var price = getText(priceEl);
          alert("구매가는"+cost+", 소비자가는"+price);
+         
          var chshPerBoard = price-cost;
+         
          //전체 마진금액
-         var cash = chshPerBoard*newTotal;
+         var cash = chshPerBoard*newTotal;//220*15 
          alert("전체 마진금액은"+cash);
+         
          var cashEl = document.getElementById("cash");
          replaceText(cashEl,cash);
          }/////////////end of 200 OK 상태값

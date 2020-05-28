@@ -6,14 +6,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%
-	SqlMapCommonDao zDao = new SqlMapCommonDao();
 	String zdo = request.getParameter("zdo");
+	SqlMapCommonDao zDao = new SqlMapCommonDao();
 	Map<String,Object> rmap = new HashMap<>();
 	rmap.put("zdo", zdo);
 	List<Map<String,Object>> rList =zDao.getguList(rmap);
 	Gson g = new Gson();
 	String imsi = g.toJson(rList); 
 	%>
-	<%
-		
-	%>
+	<select id="d_sigu">
+    <option value="선택">선택</option>
+      
+<%
+ for(int i=0; i<rList.size();i++){
+	 Map<String,Object> siguMap = rList.get(i);
+%>
+	<option value="<%=siguMap.get("SIGU") %>"> <%=siguMap.get("SIGU")%></option>
+ <%
+ }
+ %>
+	</select>  
+
